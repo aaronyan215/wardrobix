@@ -1,0 +1,6 @@
+clear:cap,t-shirt,polo,long-sleeve,button-up,hoodie,vest,flannel,athletic-shorts,sweat-shorts,jorts,cargo-shorts,trousers,khakis,chinos,leggings,sneakers,running-shoes,loafers,heels,sandals,slides:winter-boots
+sunny:cap,t-shirt,polo,athletic-shorts,sweat-shorts,jorts,cargo-shorts,leggings,sneakers,running-shoes,loafers,heels,sandals,slides:beanie,jacket,puffer,windbreaker,winter-boots
+cloudy:long-sleeve,hoodie,flannel,jeans,sweatpants,cargo-pants,trousers,khakis,chinos,leggings,sneakers,running-shoes,loafers,heels,boots:winter-boots
+rainy:beanie,cap,long-sleeve,hoodie,jacket,puffer,windbreaker,flannel,jeans,cargo-pants,sweatpants,trousers,khakis,chinos,leggings,sneakers,running-shoes,loafers,boots:t-shirt,polo,athletic-shorts,sweat-shorts,jorts,cargo-shorts,heels,sandals,slides
+snowy:beanie,long-sleeve,hoodie,jacket,puffer,jeans,sweatpants,cargo-pants,trousers,khakis,chinos,leggings,boots,winter-boots:t-shirt,polo,athletic-shorts,sweat-shorts,jorts,cargo-shorts,heels,sandals,slides
+windy:beanie,cap,long-sleeve,hoodie,jacket,windbreaker,vest,flannel,jeans,sweatpants,cargo-pants,trousers,khakis,chinos,leggings,sneakers,running-shoes,loafers:t-shirt,sandals,slides
