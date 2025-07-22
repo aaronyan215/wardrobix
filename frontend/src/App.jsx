@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+
 // Login form component
 function Login({ onLogin, switchToSignup }) {
   const [username, setUsername] = useState('');
@@ -184,7 +186,7 @@ function App() {
   const fetchClothes = () => {
     if (!credentials) return;
 
-    fetch('http://localhost:8080/clothes', {
+    fetch(`${API_BASE_URL}/clothes`, {
       method: 'GET',
       headers: getAuthHeaders(),
     })
@@ -205,7 +207,7 @@ function App() {
     if (!credentials) return;
 
     const method = editingId ? 'PUT' : 'POST';
-    const url = editingId ? `http://localhost:8080/clothes/${editingId}` : 'http://localhost:8080/clothes';
+    const url = editingId ? `http://${API_BASE_URL}/clothes/${editingId}` : 'http://localhost:8080/clothes';
 
     fetch(url, {
       method,
@@ -241,7 +243,7 @@ function App() {
   const deleteClothingItem = id => {
     if (!credentials) return;
 
-    fetch(`http://localhost:8080/clothes/${id}`, {
+    fetch(`${API_BASE_URL}/clothes/${id}`, {
       method: 'DELETE',
       headers: getAuthHeaders(),
     })
@@ -262,7 +264,7 @@ function App() {
       return;
     }
 
-    fetch(`http://localhost:8080/recommend/${formality}/${city}`, {
+    fetch(`${API_BASE_URL}/recommend/${formality}/${city}`, {
       method: 'GET',
       headers: getAuthHeaders(),
     })
@@ -280,7 +282,7 @@ function App() {
   // Handle login from Login component
   const handleLogin = async (username, password) => {
     try {
-      const res = await fetch('http://localhost:8080/clothes', {
+      const res = await fetch(`${API_BASE_URL}/clothes`, {
         method: 'GET',
         headers: {
           'Authorization': 'Basic ' + btoa(username + ':' + password),
@@ -300,7 +302,7 @@ function App() {
 
   // Handle signup - returns a Promise so Signup component can show success/error
   const handleSignup = async (username, password) => {
-    const res = await fetch('http://localhost:8080/register', {
+    const res = await fetch(`${API_BASE_URL}/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
