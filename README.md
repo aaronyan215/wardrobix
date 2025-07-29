@@ -31,9 +31,9 @@ docker compose down -v
 ```
 
 ## Tech Stack
-**Backend:** Spring Boot, Spring Security, MySQL, WeatherAPI.com
-**Frontend:** React + Vite
-**Build-Tools:** Apache Maven, Docker (multi-arch)
+- **Backend:** Spring Boot, Spring Security, MySQL, WeatherAPI.com
+- **Frontend:** React + Vite
+- **Build-Tools:** Apache Maven, Docker (multi-arch)
 
 
 ## Usage
