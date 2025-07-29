@@ -37,7 +37,7 @@ docker compose down -v
 
 
 ## Usage
-Once you run the app, you will be presented with an initial authentification page. If you have not made an accound yet, simply click Sign Up
+Once you run the app, you will be presented with an initial authentification page. If you have not made an account yet, simply click Sign Up
 and create a username + password. You can then login with this info, and your closet/data will be stored in this account.
 
 To add clothes to your wardrobe, just enter its name, primary color, and occasion. Additionally, you'll need to input its type: top, bottom, headwear, outerwear or footwear. Lastly, you must enter its subtype (more information later). To generate an outfit from your current closet, simply input the occasion and the city, and WardrobiX will gather the current weather and temperature of that city to curate an outfit for you!
