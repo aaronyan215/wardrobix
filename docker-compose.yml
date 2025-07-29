@@ -1,24 +1,6 @@
+version: "2.4"
+
 services:
-  backend:
-    build:
-      context: ./backend
-    ports:
-      - "8080:8080"
-    depends_on:
-      - db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/wardrobe_db
-      SPRING_DATASOURCE_USERNAME: wardrobe_user
-      SPRING_DATASOURCE_PASSWORD: wardrobe_password
-
-  frontend:
-    build:
-      context: ./frontend
-    ports:
-      - "3000:80"
-    environment:
-      REACT_APP_API_URL: http://backend:8080
-
   db:
     image: mysql:8
     environment:
@@ -30,6 +12,30 @@ services:
       - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    image: aaronyan215/wardrobix-backend:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/wardrobe_db
+      SPRING_DATASOURCE_USERNAME: wardrobe_user
+      SPRING_DATASOURCE_PASSWORD: wardrobe_password
+
+  frontend:
+    image: aaronyan215/wardrobix-frontend:latest
+    ports:
+      - "3000:80"
+    environment:
+      REACT_APP_API_URL: http://backend:8080
 
 volumes:
   db_data:
